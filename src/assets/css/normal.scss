@@ -1,0 +1,239 @@
+@import './normalize';
+
+// 定义字体
+@font-face {
+  font-family: 'my-font';
+  src: url('../font/my-font.ttf');
+}
+
+@font-face {
+  font-family: 'font-number';
+  src: url('../font/font-number.ttf');
+}
+
+$fs: (
+  'fs-12': 0.15rem,
+  'fs-14': 0.175rem,
+  'fs-16': 0.2rem,
+  'fs-18': 0.225rem,
+  'fs-20': 0.25rem,
+  'fs-22': 0.275rem,
+  'fs-24': 0.3rem,
+  'fs-28': 0.4rem,
+  'fs-42': 0.525rem,
+);
+
+// 定义字体大小
+@each $key, $value in $fs {
+  .#{$key} {
+    font-size: $value;
+  }
+}
+
+//定义边距
+$spcing_diretion: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+);
+$spacing_size: (
+  3: 0.0375rem,
+  4: 0.05rem,
+  5: 0.0625rem,
+  6: 0.075rem,
+  7: 0.0875rem,
+  8: 0.1rem,
+  9: 0.1125rem,
+  10: 0.125rem,
+  15: 0.1875rem,
+  20: 0.25rem,
+  30: 0.375rem,
+);
+@each $key1, $value1 in $spcing_diretion {
+  @each $key2, $value2 in $spacing_size {
+    .m#{$key1}-#{$key2} {
+      margin-#{$value1}: $value2;
+    }
+    .p#{$key1}-#{$key2} {
+      padding-#{$value1}: $value2;
+    }
+  }
+}
+
+@each $key, $value in $spacing_size {
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mx-#{$key} {
+    margin: 0 $value;
+  }
+  .my-#{$key} {
+    margin: $value 0;
+  }
+  .p-#{$key} {
+    padding: $value;
+  }
+  .px-#{$key} {
+    padding: 0 $value;
+  }
+  .py-#{$key} {
+    padding: $value 0;
+  }
+}
+
+// 定义flex布局工具类
+.d-flex {
+  display: flex;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.f-warp {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+$flex_jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+$flex_ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+@each $key, $value in $flex_jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key, $value in $flex_ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+// 初始化样式样式---------------------------------------------
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 1200px;
+  // min-height: 100vh;
+}
+
+body {
+  font-family: 'my-font', 'Microsoft Yahei', Tahoma, Helvetica, Arial, SimSun;
+  font-size: 0.175rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+div,
+i,
+a,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:hover,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+// 工具类
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+// 文字一行显示
+.t-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.ff-num {
+  font-family: 'font-number';
+}
+
+.ff-yahei {
+  font-family: 'Microsoft Yahei';
+}
